@@ -1,0 +1,20 @@
+N, T = map(int, input().split())
+
+alunos = []
+for _ in range(N):
+    nome, h = input().split()
+    h = int(h)
+    alunos.append((nome, h))
+
+alunos.sort(key=lambda x: -x[1])
+
+times = [[] for _ in range(T)]
+
+for i, (nome, _) in enumerate(alunos):
+    times[i % T].append(nome)
+
+for i in range(T):
+    print(f"Time {i+1}")
+    for nome in sorted(times[i]):
+        print(nome)
+    print()
